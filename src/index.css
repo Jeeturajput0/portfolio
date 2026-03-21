@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --bg: #f8f4ed;
+  --text: #111827;
+  --muted: #5b6474;
+  --accent: #f97316;
+  --accent-strong: #ea580c;
+  --nav-bg: rgba(255, 248, 240, 0.72);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #07111f;
+  --text: #f8fafc;
+  --muted: #a8b3c5;
+  --accent: #fb923c;
+  --accent-strong: #f97316;
+  --nav-bg: rgba(7, 17, 31, 0.62);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: "Sora", "Segoe UI", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+::selection {
+  background: rgba(249, 115, 22, 0.35);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.page-noise {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.03;
+  background-color: #ffffff;
+}
+
+.page-orb {
+  pointer-events: none;
+  position: fixed;
+  z-index: 0;
+  border-radius: 9999px;
+  filter: blur(60px);
+  opacity: 0.2;
+}
+
+.page-orb-one {
+  top: 2rem;
+  left: -4rem;
+  height: 12rem;
+  width: 12rem;
+  background: rgba(249, 115, 22, 0.18);
+}
+
+.page-orb-two {
+  right: -4rem;
+  bottom: 4rem;
+  height: 14rem;
+  width: 14rem;
+  background: rgba(56, 189, 248, 0.12);
+}
+
+@media (max-width: 768px) {
+  .page-orb-one,
+  .page-orb-two {
+    opacity: 0.14;
+    filter: blur(50px);
+  }
+}
