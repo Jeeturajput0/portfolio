@@ -32,7 +32,7 @@ function ResumePage() {
     >
       <div className="mb-8 flex flex-wrap gap-4">
         <a
-          href="/Arjun-Rao-Resume.pdf"
+          href="src/assets/jeetuResume.pdf"
           download
           className="inline-flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,var(--accent),var(--accent-strong))] px-6 py-3 text-sm font-semibold text-white"
         >

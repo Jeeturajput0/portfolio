@@ -157,24 +157,24 @@ export const projects = [
 export const timeline = {
   experience: [
     {
-      period: '2024 - Present',
-      title: 'Senior Frontend Engineer',
-      place: 'Northstar Labs',
-      detail: 'Leading component architecture, motion systems, and performance work for B2B SaaS products.',
+      period: '2024 - 2025',
+      title: 'Frontend Developer Intern',
+      place: 'AI Scholar',
+      detail: 'Worked on real-world web applications using modern frontend technologies. Focused on building scalable UI components, responsive layouts, and integrating APIs.',
     },
     {
-      period: '2022 - 2024',
-      title: 'Frontend Developer',
+      period: '2024 - Present',
+      title: 'Full Stack & Frontend Projects',
       place: 'PixelFoundry',
       detail: 'Built responsive landing pages and internal dashboards with React, Tailwind, and API integrations.',
     },
   ],
   education: [
     {
-      period: '2017 - 2021',
-      title: 'B.Tech in Computer Science',
-      place: 'Visvesvaraya Institute of Technology',
-      detail: 'Focused on software engineering, data structures, and product design fundamentals.',
+      period: '2024 - present',
+      title: 'BCA in Computer Science',
+      place: ' Dr. MPS Group of Institutions in Agra. ',
+      detail: 'Web Development',
     },
   ],
   certifications: [

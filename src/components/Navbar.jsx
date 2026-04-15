@@ -26,7 +26,7 @@ function Navbar({ theme, toggleTheme }) {
         <div className="flex items-center justify-between gap-4">
           <Link to="/" className="flex items-center gap-3">
             <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--accent),var(--accent-strong))] text-sm font-semibold text-white">
-              AR
+              JR
             </span>
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-[var(--muted)]">Developer</p>
