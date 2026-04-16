@@ -116,24 +116,26 @@ export const stackGroups = [
 export const projectFilters = ['All', 'Frontend', 'Full Stack', 'UI Projects']
 
 export const projects = [
+
   {
-    title: 'Nebula Commerce',
-    category: 'Full Stack',
-    description: 'A headless storefront with fast product discovery, animated cart interactions, and admin analytics.',
-    tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    image: 'Gradient commerce dashboard mockup',
-    github: 'https://github.com/',
-    demo: 'https://example.com',
-  },
-  {
-    title: 'Pulse Analytics',
-    category: 'Frontend',
-    description: 'An executive dashboard with live KPI widgets, onboarding flows, and conversion-focused reporting surfaces.',
-    tech: ['React', 'Tailwind CSS', 'Framer Motion'],
-    image: 'Data dashboard interface card',
-    github: 'https://github.com/',
-    demo: 'https://example.com',
-  },
+  title: 'FlavorNest Restaurant',
+  category: 'Full Stack',
+  description: 'A modern restaurant website with interactive menu browsing, table reservation system, and smooth UI animations for an enhanced user experience.',
+  tech: ['React.js', 'Node.js', 'Tailwind CSS'],
+  image: 'Modern restaurant UI with food cards and booking section',
+  github: 'https://github.com/Jeeturajput0/restaurant-web',
+  demo: 'https://restaurant-web-navy.vercel.app/',
+
+},
+ {
+  title: 'Nebula Commerce',
+  category: 'Full Stack',
+  description: 'A modern e-commerce platform with seamless product browsing, dynamic cart interactions, secure checkout system, and admin dashboard for product and order management.',
+  tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
+  image: 'Modern e-commerce UI with product cards, cart and checkout flow',
+  github: 'https://github.com/Jeeturajput0/E-commerce',
+  demo: 'e-commerce-ten-bice-24.vercel.app',
+},
   {
     title: 'Canvas Studio',
     category: 'UI Projects',
@@ -143,15 +145,15 @@ export const projects = [
     github: 'https://github.com/',
     demo: 'https://example.com',
   },
-  {
-    title: 'TeamOrbit',
-    category: 'Full Stack',
-    description: 'A collaboration platform for product teams with task management, role-based access, and internal messaging.',
-    tech: ['React', 'Express', 'MongoDB'],
-    image: 'Team collaboration workspace',
-    github: 'https://github.com/',
-    demo: 'https://example.com',
-  },
+ {
+  title: 'Sukun Weddings',
+  category: 'Frontend',
+  description: 'A modern luxury wedding planner website with elegant service sections, curated gallery showcase, and smooth UI animations designed to deliver a calm and premium user experience.',
+  tech: ['React.js', 'Tailwind CSS', 'Framer Motion'],
+  image: 'Elegant wedding planner UI with soft pastel theme, gallery and booking section',
+  github: 'https://github.com/Jeeturajput0/wedding-planner',
+  demo: 'https://sukun-weddings.vercel.app/', 
+}
 ]
 
 export const timeline = {
