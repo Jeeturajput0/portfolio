@@ -1,242 +1,487 @@
 export const siteConfig = {
   name: 'Jeetu Rajput',
-  title: 'Frontend Engineer crafting premium web experiences',
+
+  title: 'Frontend Developer & MERN Stack Developer',
+
   email: 'jeeturajput0302@email.com',
-  location: 'Uttar Pradesh',
+
+  location: 'Agra, Uttar Pradesh, India',
+
   tagline:
-    'I build polished, high-conversion products with strong frontends, scalable systems, and design-led execution.',
+    'Building modern web experiences with clean interfaces, scalable architecture, and purposeful interactions.',
+
   description:
-    'A React-focused developer portfolio built with reusable components, motion, and an editorial SaaS visual language.',
+    ' I turn ideas into responsive, user-focused applications using React.js, Node.js, Express.js, and MongoDB.',
   socialLinks: [
-    { label: 'GitHub', href: 'https://github.com/jeeturajput0', short: 'GH' },
-    { label: 'LinkedIn', href: 'https://linkedin.com/jeeturajput', short: 'LI' },
-    { label: 'Twitter', href: 'https://x.com/', short: 'X' },
-    { label: 'Email', href: 'mailto:jeeturajput0302@email.com', short: 'Mail' },
+    {
+      label: 'GitHub',
+      href: 'https://github.com/Jeeturajput0',
+      short: 'GH',
+    },
+    {
+      label: 'LinkedIn',
+      href: 'https://linkedin.com/in/jeeturajput',
+      short: 'LI',
+    },
+    {
+      label: 'Email',
+      href: 'mailto:jeeturajput0302@email.com',
+      short: 'Mail',
+    },
   ],
 }
 
+
 export const stats = [
-  { value: '5+', label: 'Years building interfaces' },
-  { value: '18', label: 'Products shipped' },
-  { value: '96%', label: 'Average Lighthouse score' },
+  {
+    value: 'MERN',
+    label: 'Stack',
+  },
+  {
+    value: '3+',
+    label: 'Projects',
+  },
+  {
+    value: '2025',
+    label: 'Internship Started',
+  },
 ]
 
-export const techStack = ['React', 'JavaScript', 'TypeScript', 'Tailwind', 'Node.js', 'Framer Motion']
+
+export const techStack = [
+  'HTML5',
+  'CSS3',
+  'JavaScript',
+  'React.js',
+  'Tailwind CSS',
+  'Node.js',
+  'Express.js',
+  'MongoDB',
+  'Mongoose',
+  'REST APIs',
+  'Git',
+  'GitHub',
+  'Redux Toolkit',
+]
+
 
 export const serviceCards = [
   {
-    title: 'Product UI Engineering',
-    description: 'Landing pages, dashboards, and app surfaces that balance speed, usability, and visual edge.',
+    title: 'Frontend Development',
+    description:
+      'Building responsive and user-friendly web interfaces using React.js, JavaScript, HTML, CSS, and Tailwind CSS.',
   },
+
   {
-    title: 'Design Systems',
-    description: 'Reusable component libraries with tokens, consistent patterns, and maintainable frontends.',
+    title: 'MERN Stack Development',
+    description:
+      'Developing full-stack web applications using MongoDB, Express.js, React.js, and Node.js with scalable application structure.',
   },
+
   {
-    title: 'Performance & DX',
-    description: 'Faster apps, better accessibility, and cleaner workflows for teams that care about quality.',
+    title: 'API & Backend Integration',
+    description:
+      'Creating and integrating REST APIs, authentication, CRUD operations, middleware, and frontend-backend data communication.',
   },
 ]
+
 
 export const aboutSections = [
   {
     title: 'Who I Am',
     body:
-      'I am a developer who sits at the intersection of product, design, and engineering. I like interfaces that feel trustworthy, sharp, and deliberate.',
+      'I am Jeetu Rajput, a BCA student and Frontend Developer with hands-on experience in the MERN stack. I enjoy building responsive, scalable, and user-friendly web applications using modern technologies.',
   },
+
   {
     title: 'My Journey',
     body:
-      'I started with static web builds, moved into React product work, and now focus on premium web experiences that convert and scale.',
+      'My development journey started with frontend technologies and gradually expanded into full-stack development. I currently work as a Frontend Developer Intern at AI Scholars, where I work on real-world web applications and collaborative development projects.',
   },
+
   {
     title: 'What I Do',
     body:
-      'I design frontend architecture, build reusable systems, integrate APIs, and ship responsive interfaces with strong motion and accessibility.',
+      'I develop responsive interfaces using React.js and Tailwind CSS, integrate REST APIs, implement CRUD operations and authentication, and work with Node.js, Express.js, MongoDB, and Mongoose for full-stack functionality.',
   },
 ]
+
 
 export const skillCategories = [
   {
     title: 'Frontend Skills',
+
     items: [
-      { name: 'HTML & Semantic UI', level: 95 },
-      { name: 'CSS / Tailwind CSS', level: 93 },
-      { name: 'JavaScript', level: 92 },
-      { name: 'TypeScript', level: 85 },
-      { name: 'React', level: 94 },
-      { name: 'Framer Motion', level: 88 },
+      {
+        name: 'HTML5 & Semantic UI',
+        level: 90,
+      },
+      {
+        name: 'CSS3',
+        level: 88,
+      },
+      {
+        name: 'Tailwind CSS',
+        level: 90,
+      },
+      {
+        name: 'JavaScript (ES6+)',
+        level: 88,
+      },
+      {
+        name: 'React.js',
+        level: 90,
+      },
+      {
+        name: 'Responsive UI Design',
+        level: 90,
+      },
+      {
+        name: 'React Router DOM',
+        level: 85,
+      },
     ],
   },
+
   {
     title: 'Backend Skills',
+
     items: [
-      { name: 'Node.js', level: 83 },
-      { name: 'Express', level: 81 },
-      { name: 'REST API Design', level: 86 },
+      {
+        name: 'Node.js',
+        level: 80,
+      },
+      {
+        name: 'Express.js',
+        level: 80,
+      },
+      {
+        name: 'REST APIs',
+        level: 85,
+      },
+      {
+        name: 'JWT Authentication',
+        level: 78,
+      },
+      {
+        name: 'Middleware',
+        level: 78,
+      },
+      {
+        name: 'CRUD Operations',
+        level: 85,
+      },
     ],
   },
+
   {
     title: 'Database',
+
     items: [
-      { name: 'MongoDB', level: 78 },
-      { name: 'PostgreSQL', level: 74 },
+      {
+        name: 'MongoDB',
+        level: 80,
+      },
+      {
+        name: 'Mongoose',
+        level: 78,
+      },
     ],
   },
+
   {
-    title: 'Tools',
+    title: 'Tools & Technologies',
+
     items: [
-      { name: 'Git & GitHub', level: 91 },
-      { name: 'VS Code', level: 95 },
-      { name: 'Figma', level: 80 },
-      { name: 'Vite', level: 89 },
+      {
+        name: 'Git & GitHub',
+        level: 88,
+      },
+      {
+        name: 'Figma',
+        level: 75,
+      },
+      {
+        name: 'Postman',
+        level: 82,
+      },
+      {
+        name: 'MongoDB Compass',
+        level: 80,
+      },
+      {
+        name: 'Redux Toolkit',
+        level: 78,
+      },
     ],
   },
 ]
+
 
 export const stackGroups = [
   {
     title: 'Frontend',
-    items: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Tailwind CSS'],
+
+    items: [
+      'HTML5',
+      'CSS3',
+      'JavaScript',
+      'React.js',
+      'Tailwind CSS',
+      'React Router DOM',
+      'Responsive UI Design',
+    ],
   },
+
   {
     title: 'Backend',
-    items: ['Node.js', 'Express', 'JWT Auth', 'REST APIs'],
+
+    items: [
+      'Node.js',
+      'Express.js',
+      'REST APIs',
+      'JWT Authentication',
+      'Middleware',
+      'CRUD Operations',
+    ],
   },
+
   {
     title: 'Database',
-    items: ['MongoDB', 'PostgreSQL', 'Firebase'],
+
+    items: [
+      'MongoDB',
+      'Mongoose',
+    ],
   },
+
   {
     title: 'Tools',
-    items: ['Git', 'GitHub', 'VS Code', 'Figma', 'Postman'],
+
+    items: [
+      'Git',
+      'GitHub',
+      'Figma',
+      'Postman',
+      'MongoDB Compass',
+      'Redux Toolkit',
+    ],
   },
 ]
 
-export const projectFilters = ['All', 'Frontend', 'Full Stack', 'UI Projects']
+
+export const projectFilters = [
+  'All',
+  'Frontend',
+  'Full Stack',
+]
+
 
 export const projects = [
-
   {
-  title: 'FlavorNest Restaurant',
-  category: 'Full Stack',
-  description: 'A modern restaurant website with interactive menu browsing, table reservation system, and smooth UI animations for an enhanced user experience.',
-  tech: ['React.js', 'Node.js', 'Tailwind CSS'],
-  image: 'Modern restaurant UI with food cards and booking section',
-  github: 'https://github.com/Jeeturajput0/restaurant-web',
-  demo: 'https://restaurant-web-navy.vercel.app/',
+    title: 'E-Commerce Website',
 
-},
- {
-  title: 'Nebula Commerce',
-  category: 'Full Stack',
-  description: 'A modern e-commerce platform with seamless product browsing, dynamic cart interactions, secure checkout system, and admin dashboard for product and order management.',
-  tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
-  image: 'Modern e-commerce UI with product cards, cart and checkout flow',
-  github: 'https://github.com/Jeeturajput0/E-commerce',
-  demo: 'e-commerce-ten-bice-24.vercel.app',
-},
-  {
-    title: 'Canvas Studio',
-    category: 'UI Projects',
-    description: 'A portfolio-focused creative studio site with immersive transitions, storytelling sections, and rich visual direction.',
-    tech: ['Vite', 'React', 'GSAP'],
-    image: 'Editorial portfolio preview',
-    github: 'https://github.com/',
-    demo: 'https://example.com',
+    category: 'Full Stack',
+
+    description:
+      'A responsive e-commerce application built with React.js and Tailwind CSS, featuring product listing pages, cart functionality, and responsive layouts.',
+
+    tech: [
+      'React.js',
+      'Tailwind CSS',
+      'JavaScript',
+    ],
+
+    image:
+      'Modern e-commerce website with product cards, shopping cart, and responsive layout',
+
+    github:
+      'https://github.com/Jeeturajput0/E-commerce',
+
+    demo:
+      'https://e-commerce-ten-bice-24.vercel.app/',
   },
- {
-  title: 'Sukun Weddings',
-  category: 'Frontend',
-  description: 'A modern luxury wedding planner website with elegant service sections, curated gallery showcase, and smooth UI animations designed to deliver a calm and premium user experience.',
-  tech: ['React.js', 'Tailwind CSS', 'Framer Motion'],
-  image: 'Elegant wedding planner UI with soft pastel theme, gallery and booking section',
-  github: 'https://github.com/Jeeturajput0/wedding-planner',
-  demo: 'https://sukun-weddings.vercel.app/', 
-}
+
+  {
+    title: 'Restaurant Website',
+
+    category: 'Frontend',
+
+    description:
+      'A responsive restaurant website developed using React.js and Tailwind CSS with a modern user interface and mobile-friendly design.',
+
+    tech: [
+      'React.js',
+      'Tailwind CSS',
+    ],
+
+    image:
+      'Modern restaurant website with food cards, menu sections, and responsive layout',
+
+    github:
+      'https://github.com/Jeeturajput0/restaurant-web',
+
+    demo:
+      'https://restaurant-web-navy.vercel.app/',
+  },
+
+  {
+    title: 'Full-Stack Blog Application',
+
+    category: 'Full Stack',
+
+    description:
+      'An ongoing MERN Stack blog platform featuring authentication, CRUD operations, secure user management, responsive frontend, and scalable backend architecture.',
+
+    tech: [
+      'MongoDB',
+      'Express.js',
+      'React.js',
+      'Node.js',
+    ],
+
+    image:
+      'Modern full-stack blog application with authentication, articles, and responsive dashboard',
+
+    github:
+      'https://github.com/Jeeturajput0',
+
+    demo:
+      '#',
+  },
 ]
+
 
 export const timeline = {
   experience: [
     {
-      period: '2024 - 2025',
+      period: '2025 - Present',
+
       title: 'Frontend Developer Intern',
-      place: 'AI Scholar',
-      detail: 'Worked on real-world web applications using modern frontend technologies. Focused on building scalable UI components, responsive layouts, and integrating APIs.',
-    },
-    {
-      period: '2024 - Present',
-      title: 'Full Stack & Frontend Projects',
-      place: 'PixelFoundry',
-      detail: 'Built responsive landing pages and internal dashboards with React, Tailwind, and API integrations.',
+
+      place: 'AI Scholars, Agra',
+
+      detail:
+        'Developing responsive and user-friendly web applications using React.js and Tailwind CSS. Working with REST APIs, CRUD operations, authentication, and frontend-backend data communication. Also gaining practical experience with Node.js, Express.js, and MongoDB.',
     },
   ],
+
   education: [
     {
-      period: '2024 - present',
-      title: 'BCA in Computer Science',
-      place: ' Dr. MPS Group of Institutions in Agra. ',
-      detail: 'Web Development',
+      period: '2024 - 2027',
+
+      title: 'Bachelor of Computer Applications (BCA)',
+
+      place: 'Dr. MPS Memorial Group of Institutions, Sikandra, Agra',
+
+      detail:
+        'Currently pursuing BCA with a focus on web development and modern software technologies.',
     },
   ],
+
   certifications: [
     {
-      period: '2025',
-      title: 'Advanced React Patterns',
-      place: 'Frontend Masters',
-      detail: 'Component composition, performance patterns, and production-grade frontend architecture.',
-    },
-    {
-      period: '2023',
-      title: 'Responsive Web Design',
-      place: 'freeCodeCamp',
-      detail: 'Accessibility, CSS systems, semantic structure, and mobile-first implementation.',
+      period: 'Certification',
+
+      title: 'Frontend Development Certification',
+
+      place: 'Frontend Development',
+
+      detail:
+        'Certification in frontend development covering modern web development concepts and practices.',
     },
   ],
 }
 
+
 export const blogPosts = [
   {
-    slug: 'designing-motion-with-purpose',
-    title: 'Designing Motion With Purpose in SaaS Interfaces',
-    category: 'UI Engineering',
-    date: 'February 18, 2026',
-    excerpt: 'How to use motion to improve clarity, hierarchy, and product feel without slowing the interface down.',
+    slug: 'building-react-applications',
+
+    title: 'Building Modern Web Applications with React.js',
+
+    category: 'Frontend Development',
+
+    date: '2026',
+
+    excerpt:
+      'Exploring how React.js, reusable components, and responsive design can be used to build modern user-friendly web applications.',
+
     content: [
-      'Motion should clarify structure before it tries to impress. The fastest way to cheapen an interface is to animate everything with the same timing and intensity.',
-      'In product UIs, I use motion for three jobs: reveal hierarchy, connect cause and effect, and reduce abrupt context changes. If an animation is not helping one of those jobs, it probably does not belong.',
-      'A good SaaS interface feels composed because movement has constraints. Limit distance, keep durations tight, and let larger transitions happen only when the user is changing context in a meaningful way.',
+      'React.js makes it easier to build modern web applications by breaking interfaces into reusable components.',
+
+      'A well-structured React application should keep components reusable, maintainable, and focused on specific responsibilities.',
+
+      'Combining React.js with Tailwind CSS helps create responsive interfaces quickly while keeping the development workflow consistent.',
     ],
   },
+
   {
-    slug: 'shipping-react-without-chaos',
-    title: 'Shipping React Products Without Component Chaos',
-    category: 'Architecture',
-    date: 'January 09, 2026',
-    excerpt: 'A practical structure for component boundaries, content data, and maintainable route-level composition.',
+    slug: 'mern-stack-development',
+
+    title: 'Getting Started with MERN Stack Development',
+
+    category: 'MERN Stack',
+
+    date: '2026',
+
+    excerpt:
+      'A practical overview of building full-stack applications using MongoDB, Express.js, React.js, and Node.js.',
+
     content: [
-      'Most React chaos starts when teams blur the line between reusable UI, route composition, and product content. Once those layers collapse into each other, every change feels expensive.',
-      'The pattern I keep returning to is simple: route pages compose sections, shared components stay dumb and reusable, and editable content lives in central data objects or API responses.',
-      'That structure makes refactors smaller, testing easier, and design iteration faster because you are not hunting through view logic to update what should have been plain content.',
+      'The MERN stack combines MongoDB, Express.js, React.js, and Node.js to create complete full-stack web applications.',
+
+      'React.js handles the frontend while Node.js and Express.js provide backend functionality and REST API integration.',
+
+      'MongoDB and Mongoose make it possible to store and manage application data while keeping the development process flexible.',
     ],
   },
+
   {
-    slug: 'tailwind-beyond-utility-spam',
-    title: 'Tailwind Beyond Utility Spam',
-    category: 'CSS Systems',
-    date: 'December 03, 2025',
-    excerpt: 'How to keep a Tailwind codebase sharp with tokens, semantic wrappers, and real design intent.',
+    slug: 'responsive-web-development',
+
+    title: 'Why Responsive Web Design Matters',
+
+    category: 'Web Development',
+
+    date: '2026',
+
+    excerpt:
+      'Understanding the importance of responsive layouts and user-friendly interfaces across different screen sizes.',
+
     content: [
-      'Tailwind gets messy when every screen is treated like a one-off. Utility classes are not the problem; unstructured design decisions are.',
-      'Use shared wrappers, spacing rules, color tokens, and a deliberate type scale. Once those constraints exist, Tailwind becomes fast instead of noisy.',
-      'The goal is not fewer classes for their own sake. The goal is a system where visual decisions repeat on purpose and stay easy to reason about.',
+      'A modern website should provide a consistent experience across desktops, tablets, and mobile devices.',
+
+      'Responsive design helps applications adapt to different screen sizes while maintaining usability and visual hierarchy.',
+
+      'Using flexible layouts, responsive Tailwind CSS utilities, and reusable components makes responsive development easier and more maintainable.',
     ],
   },
 ]
 
+
 export const contactInfo = [
-  { label: 'Email', value: 'jeeturajput0302@email.com', href: 'mailto:jeeturajput0302@email.com' },
-  { label: 'LinkedIn', value: 'linkedin.com/in/jeeturajput', href: 'https://linkedin.com/jeeturajput' },
-  { label: 'GitHub', value: 'github.com/jeeturajput0', href: 'https://github.com/jeeturajput0' },
-  { label: 'Location', value: 'Uttar Pradesh', href: 'https://maps.google.com/' },
+  {
+    label: 'Email',
+    value: 'jeeturajput0302@email.com',
+    href: 'mailto:jeeturajput0302@email.com',
+  },
+
+  {
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/jeeturajput',
+    href: 'https://linkedin.com/in/jeeturajput',
+  },
+
+  {
+    label: 'GitHub',
+    value: 'github.com/Jeeturajput0',
+    href: 'https://github.com/Jeeturajput0',
+  },
+
+  {
+    label: 'Location',
+    value: 'Agra, Uttar Pradesh, India',
+    href: 'https://maps.google.com/?q=Agra,Uttar+Pradesh,India',
+  },
 ]
