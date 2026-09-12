@@ -1,11 +1,13 @@
 import Footer from './Footer'
 import Navbar from './Navbar'
 import ScrollProgress from './ScrollProgress'
+import { FloatingBackground } from './animations'
 
 function Layout({ children, theme, toggleTheme }) {
   return (
     <div className="min-h-screen bg-[var(--bg)] text-[var(--text)] transition-colors duration-300">
       <ScrollProgress />
+      <FloatingBackground />
       <div className="page-noise" />
       <div className="page-orb page-orb-one" />
       <div className="page-orb page-orb-two" />

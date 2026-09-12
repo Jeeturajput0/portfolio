@@ -1,5 +1,6 @@
 ﻿import { ArrowUp, Github, Linkedin, Mail, Twitter } from 'lucide-react'
 import { siteConfig } from '../data/portfolioData'
+import { motion } from 'framer-motion'
 
 const iconMap = {
   GitHub: Github,
@@ -17,7 +18,7 @@ function Footer() {
   }
 
   return (
-    <footer className="border-t border-white/15 bg-black/10 backdrop-blur-xl">
+    <motion.footer initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="border-t border-white/15 bg-black/10 backdrop-blur-xl">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-[1.3fr_1fr_1fr] lg:px-8">
         <div className="space-y-4">
           <div className="flex items-center gap-3">
@@ -74,7 +75,7 @@ function Footer() {
             {siteConfig.socialLinks.map((item) => {
               const Icon = iconMap[item.label] || Mail
               return (
-                <a
+                <motion.a whileHover={{ y: -4, scale: 1.08 }} whileTap={{ scale: .96 }}
                   key={item.label}
                   href={item.href}
                   target="_blank"
@@ -83,7 +84,7 @@ function Footer() {
                   aria-label={item.label}
                 >
                   <Icon size={18} />
-                </a>
+                </motion.a>
               )
             })}
           </div>
@@ -100,7 +101,7 @@ function Footer() {
           <ArrowUp size={14} />
         </button>
       </div>
-    </footer>
+    </motion.footer>
   )
 }
 

@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import {
   ArrowRight,
   CheckCircle2,
@@ -29,6 +29,8 @@ import {
   timeline,
 } from '../data/portfolioData'
 import DP from '../assets/facepic.png'
+import { AnimatedNumber } from '../components/animations'
+import { fadeLeft, fadeRight, fadeUp, scaleIn, staggerContainer } from '../components/motionVariants'
 
 const socialIconMap = {
   GitHub: Github,
@@ -37,21 +39,31 @@ const socialIconMap = {
   Email: Mail,
 }
 
-function TimelineGroup({ title, items }) {
+const journeyEntries = [
+  ...timeline.experience.map((item) => ({ ...item, category: 'Work Experience' })),
+  ...timeline.education.map((item) => ({ ...item, category: 'Education' })),
+  ...timeline.certifications.map((item) => ({ ...item, category: 'Certification' })),
+]
+
+function JourneyTimeline() {
   return (
-    <div className="rounded-[2rem] border border-white/15 bg-white/10 p-6 backdrop-blur-2xl md:p-8">
-      <div className="max-w-xl">
-        <p className="text-xs uppercase tracking-[0.3em] font-semibold text-[var(--muted)]">{title}</p>
-      </div>
-      <div className="relative mt-8 space-y-8 before:absolute before:left-[7px] before:top-2 before:h-[calc(100%-0.5rem)] before:w-px before:bg-white/15">
-        {items.map((item, idx) => (
-          <div key={`${title}-${item.title}-${idx}`} className="relative pl-8">
-            <span className="absolute left-0 top-1.5 h-3.5 w-3.5 rounded-full bg-[linear-gradient(135deg,var(--accent),var(--accent-strong))] shadow-[0_0_0_5px_rgba(249,115,22,0.2)]" />
-            <p className="text-xs font-semibold text-[var(--accent)]">{item.period}</p>
-            <h4 className="mt-1 text-xl font-semibold text-[var(--text)]">{item.title}</h4>
-            <p className="mt-0.5 text-xs font-medium uppercase tracking-[0.2em] text-[var(--muted)]">{item.place}</p>
-            <p className="mt-2.5 text-sm leading-6 text-[var(--muted)]">{item.detail}</p>
-          </div>
+    <div className="relative mx-auto mt-10 max-w-4xl pl-9 sm:pl-14">
+      <div className="absolute bottom-5 left-[13px] top-5 w-px bg-white/15 sm:left-[21px]" />
+      <motion.div initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true, amount: .15 }} transition={{ duration: 1.15, ease: 'easeOut' }} className="absolute bottom-5 left-[13px] top-5 w-px origin-top bg-gradient-to-b from-sky-400 via-[var(--accent)] to-transparent shadow-[0_0_14px_rgba(56,189,248,.8)] sm:left-[21px]" />
+      <div className="space-y-7">
+        {journeyEntries.map((item, index) => (
+          <motion.article key={`${item.category}-${item.title}`} initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: .16 }} transition={{ duration: .55, delay: index * .1, ease: 'easeOut' }} whileHover={{ y: -5, scale: 1.008 }} className="premium-card relative rounded-2xl border border-sky-300/15 bg-slate-950/45 p-5 backdrop-blur-2xl sm:p-6">
+            <motion.span initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ delay: index * .1, type: 'spring', stiffness: 250 }} className="absolute -left-[31px] top-7 h-4 w-4 rounded-full border-2 border-sky-300 bg-[#07111f] shadow-[0_0_0_5px_rgba(56,189,248,.12),0_0_15px_rgba(56,189,248,.8)] sm:-left-[39px]" />
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[.22em] text-sky-300">{item.category}</p>
+                <h3 className="mt-2 text-xl font-bold text-[var(--text)] sm:text-2xl">{item.title}</h3>
+                <p className="mt-1 text-sm font-medium text-[var(--accent)]">{item.place}</p>
+              </div>
+              <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-[var(--muted)]">{item.period}</span>
+            </div>
+            <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{item.detail}</p>
+          </motion.article>
         ))}
       </div>
     </div>
@@ -102,21 +114,18 @@ function HomePage() {
     <main className="space-y-24 pb-20">
       {/* SECTION 1: HERO SECTION */}
       <section id="hero" className="mx-auto grid max-w-7xl gap-12 px-6 pt-10 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:pt-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        <motion.div variants={staggerContainer} initial="hidden" animate="visible"
           className="space-y-8"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.3em] text-[var(--muted)] backdrop-blur-xl">
+          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.3em] text-[var(--muted)] backdrop-blur-xl">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
             </span>
             Available for freelance & full-time roles
-          </span>
+          </motion.span>
 
-          <div className="space-y-5">
+          <motion.div variants={fadeUp} className="space-y-5">
             <h1 className="max-w-4xl text-4xl font-extrabold tracking-tight text-[var(--text)] sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl">
      Frontend Developer & MERN Stack Developer
              
@@ -124,39 +133,39 @@ function HomePage() {
             <p className="max-w-2xl text-lg leading-8 text-[var(--muted)] md:text-xl">
               {siteConfig.title}. {siteConfig.tagline}
             </p>
-          </div>
+          </motion.div>
 
-          <div className="flex flex-wrap gap-4">
-            <button
+          <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
+            <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: .97 }}
               type="button"
               onClick={() => scrollToSection('projects')}
-              className="inline-flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,var(--accent),var(--accent-strong))] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_32px_rgba(249,115,22,0.3)] transition hover:opacity-90 active:scale-95"
+              className="inline-flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,var(--accent),var(--accent-strong))] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_32px_rgba(56,189,248,0.3)] transition hover:opacity-90 active:scale-95"
             >
               View Projects
               <ArrowRight size={18} />
-            </button>
-            <a
+            </motion.button>
+            <motion.a whileHover={{ scale: 1.03 }} whileTap={{ scale: .97 }}
               href="/jeetuResume.pdf"
               download
               className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-6 py-3.5 text-sm font-semibold text-[var(--text)] backdrop-blur-xl transition hover:bg-white/20 active:scale-95"
             >
               Download Resume
               <Download size={18} />
-            </a>
-            <button
+            </motion.a>
+            <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: .97 }}
               type="button"
               onClick={() => scrollToSection('contact')}
               className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3.5 text-sm font-semibold text-[var(--text)] transition hover:bg-white/10 active:scale-95"
             >
               Contact Me
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
 
-          <div className="flex flex-wrap gap-3 pt-2">
+          <motion.div variants={fadeUp} className="flex flex-wrap gap-3 pt-2">
             {siteConfig.socialLinks.map((item) => {
               const Icon = socialIconMap[item.label] || Mail
               return (
-                <a
+                <motion.a whileHover={{ y: -3, scale: 1.03 }}
                   key={item.label}
                   href={item.href}
                   target="_blank"
@@ -165,27 +174,25 @@ function HomePage() {
                 >
                   <Icon size={15} />
                   {item.label}
-                </a>
+                </motion.a>
               )
             })}
-          </div>
+          </motion.div>
 
-          <div className="grid gap-4 sm:grid-cols-3 pt-2">
+          <motion.div variants={staggerContainer} className="grid gap-4 sm:grid-cols-3 pt-2">
             {stats.map((item) => (
-              <div key={item.label} className="rounded-[1.5rem] border border-white/15 bg-white/10 p-5 backdrop-blur-xl transition hover:border-white/25">
-                <p className="text-3xl font-bold text-[var(--text)]">{item.value}</p>
+              <motion.div variants={scaleIn} whileHover={{ y: -4, scale: 1.02 }} key={item.label} className="premium-card rounded-[1.5rem] border border-white/15 bg-white/10 p-5 backdrop-blur-xl">
+                <p className="text-3xl font-bold text-[var(--text)]"><AnimatedNumber value={item.value} /></p>
                 <p className="mt-1.5 text-xs text-[var(--muted)]">{item.label}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* HERO PROFILE DISPLAY CARD */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative flex flex-col justify-center space-y-6 rounded-[2.5rem] border border-white/15 bg-white/10 p-6 backdrop-blur-2xl shadow-[0_30px_90px_rgba(0,0,0,0.15)] md:p-8"
+          animate={{ opacity: 1, scale: 1, y: [0, -7, 0] }} transition={{ opacity: { duration: .6, delay: .2 }, scale: { duration: .6, delay: .2 }, y: { duration: 5, repeat: Infinity, ease: 'easeInOut' } }} className="premium-card relative flex flex-col justify-center space-y-6 rounded-[2.5rem] border border-white/15 bg-white/10 p-6 backdrop-blur-2xl shadow-[0_30px_90px_rgba(0,0,0,0.15)] md:p-8"
         >
           <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl border border-white/15 shadow-xl">
             <img src={DP} alt={siteConfig.name} className="h-full w-full object-cover transition duration-500 hover:scale-105" />
@@ -226,8 +233,8 @@ function HomePage() {
   description="I’m Jeetu Rajput, a BCA student and Frontend Developer with hands-on MERN Stack experience. I focus on creating responsive, user-friendly applications with React.js, Tailwind CSS, REST APIs, Node.js, Express.js, and MongoDB."
 />
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {aboutSections.map((section) => (
-              <article
+            {aboutSections.map((section, index) => (
+              <motion.article variants={index % 2 ? fadeRight : fadeLeft} initial="hidden" whileInView="visible" viewport={{ once: true, amount: .2 }} whileHover={{ y: -5, scale: 1.01 }}
                 key={section.title}
                 className="rounded-[2rem] border border-white/15 bg-white/10 p-6 backdrop-blur-2xl transition hover:-translate-y-1 hover:border-white/25"
               >
@@ -236,7 +243,7 @@ function HomePage() {
                 </div>
                 <h3 className="text-xl font-bold text-[var(--text)]">{section.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{section.body}</p>
-              </article>
+              </motion.article>
             ))}
           </div>
 
@@ -278,7 +285,7 @@ function HomePage() {
           />
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {serviceCards.map((card) => (
-              <article
+              <motion.article initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .15 }} whileHover={{ y: -6, scale: 1.01 }}
                 key={card.title}
                 className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-7 backdrop-blur-2xl transition duration-300 hover:-translate-y-1.5 hover:border-white/30 hover:shadow-2xl"
               >
@@ -287,7 +294,7 @@ function HomePage() {
                 </div>
                 <h3 className="text-2xl font-bold text-[var(--text)]">{card.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{card.description}</p>
-              </article>
+              </motion.article>
             ))}
           </div>
         </motion.div>
@@ -352,14 +359,14 @@ function HomePage() {
           />
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {skillCategories.map((category) => (
-              <section key={category.title} className="rounded-[2rem] border border-white/15 bg-white/10 p-6 backdrop-blur-2xl md:p-8">
+              <motion.section key={category.title} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .15 }} whileHover={{ y: -4 }} className="premium-card rounded-[2rem] border border-white/15 bg-white/10 p-6 backdrop-blur-2xl md:p-8">
                 <h3 className="text-xl font-bold text-[var(--text)]">{category.title}</h3>
                 <div className="mt-6 space-y-5">
                   {category.items.map((skill) => (
                     <SkillBar key={skill.name} name={skill.name} level={skill.level} />
                   ))}
                 </div>
-              </section>
+              </motion.section>
             ))}
           </div>
         </motion.div>
@@ -389,11 +396,7 @@ function HomePage() {
             </a>
           </div>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            <TimelineGroup title="Work Experience" items={timeline.experience} />
-            <TimelineGroup title="Education" items={timeline.education} />
-            <TimelineGroup title="Certifications" items={timeline.certifications} />
-          </div>
+          <JourneyTimeline />
         </motion.div>
       </section>
 
@@ -413,7 +416,7 @@ function HomePage() {
 
           <div className="mt-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
             {/* Contact Information Cards */}
-            <section className="space-y-4 rounded-[2rem] border border-white/15 bg-white/10 p-6 backdrop-blur-2xl md:p-8">
+            <motion.section initial={{ opacity: 0, x: -32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="premium-card space-y-4 rounded-[2rem] border border-white/15 bg-white/10 p-6 backdrop-blur-2xl md:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--muted)]">Contact Details</p>
               <div className="space-y-4 pt-2">
                 {contactInfo.map((item) => (
@@ -429,10 +432,10 @@ function HomePage() {
                   </a>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Interactive Contact Form */}
-            <section className="rounded-[2rem] border border-white/15 bg-white/10 p-6 backdrop-blur-2xl md:p-8">
+            <motion.section initial={{ opacity: 0, x: 32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="premium-card rounded-[2rem] border border-white/15 bg-white/10 p-6 backdrop-blur-2xl md:p-8">
               <form className="space-y-5" onSubmit={handleContactSubmit} noValidate>
                 <div>
                   <label htmlFor="contact-name" className="mb-2 block text-sm font-medium text-[var(--text)]">
@@ -443,7 +446,7 @@ function HomePage() {
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData((curr) => ({ ...curr, name: e.target.value }))}
-                    className="w-full rounded-2xl border border-white/12 bg-black/10 px-4 py-3 text-sm text-[var(--text)] outline-none placeholder:text-[var(--muted)] focus:border-[var(--accent)] dark:bg-white/5"
+                    className="w-full rounded-2xl border border-white/12 bg-black/10 px-4 py-3 text-sm text-[var(--text)] outline-none placeholder:text-[var(--muted)] transition focus:scale-[1.01] focus:border-[var(--accent)] focus:shadow-[0_0_0_4px_rgba(56,189,248,.14)] dark:bg-white/5"
                     placeholder="Your Full Name"
                   />
                   {errors.name && <p className="mt-1.5 text-xs text-amber-400 font-medium">{errors.name}</p>}
@@ -458,7 +461,7 @@ function HomePage() {
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData((curr) => ({ ...curr, email: e.target.value }))}
-                    className="w-full rounded-2xl border border-white/12 bg-black/10 px-4 py-3 text-sm text-[var(--text)] outline-none placeholder:text-[var(--muted)] focus:border-[var(--accent)] dark:bg-white/5"
+                    className="w-full rounded-2xl border border-white/12 bg-black/10 px-4 py-3 text-sm text-[var(--text)] outline-none placeholder:text-[var(--muted)] transition focus:scale-[1.01] focus:border-[var(--accent)] focus:shadow-[0_0_0_4px_rgba(56,189,248,.14)] dark:bg-white/5"
                     placeholder="your.email@example.com"
                   />
                   {errors.email && <p className="mt-1.5 text-xs text-amber-400 font-medium">{errors.email}</p>}
@@ -473,28 +476,28 @@ function HomePage() {
                     rows={5}
                     value={formData.message}
                     onChange={(e) => setFormData((curr) => ({ ...curr, message: e.target.value }))}
-                    className="w-full rounded-2xl border border-white/12 bg-black/10 px-4 py-3 text-sm text-[var(--text)] outline-none placeholder:text-[var(--muted)] focus:border-[var(--accent)] dark:bg-white/5"
+                    className="w-full rounded-2xl border border-white/12 bg-black/10 px-4 py-3 text-sm text-[var(--text)] outline-none placeholder:text-[var(--muted)] transition focus:scale-[1.01] focus:border-[var(--accent)] focus:shadow-[0_0_0_4px_rgba(56,189,248,.14)] dark:bg-white/5"
                     placeholder="Describe your project, timeline, or requirement..."
                   />
                   {errors.message && <p className="mt-1.5 text-xs text-amber-400 font-medium">{errors.message}</p>}
                 </div>
 
-                <button
+                <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: .97 }}
                   type="submit"
                   className="inline-flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,var(--accent),var(--accent-strong))] px-7 py-3 text-sm font-semibold text-white shadow-md transition hover:opacity-90 active:scale-95"
                 >
                   Send Message
                   <Send size={16} />
-                </button>
+                </motion.button>
               </form>
 
-              {submitted && (
-                <div className="mt-5 flex items-center gap-3 rounded-2xl border border-emerald-300/30 bg-emerald-400/10 px-4 py-3 text-sm text-emerald-300">
+              <AnimatePresence>{submitted && (
+                <motion.div initial={{ opacity: 0, scale: .96, y: 8 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: .96 }} className="mt-5 flex items-center gap-3 rounded-2xl border border-emerald-300/30 bg-emerald-400/10 px-4 py-3 text-sm text-emerald-300">
                   <CheckCircle2 size={18} />
                   <span>Thank you! Your message has been sent successfully.</span>
-                </div>
-              )}
-            </section>
+                </motion.div>
+              )}</AnimatePresence>
+            </motion.section>
           </div>
         </motion.div>
       </section>

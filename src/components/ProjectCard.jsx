@@ -1,6 +1,7 @@
 import { ArrowUpRight, Code2, Github, Globe } from 'lucide-react'
+import { motion } from 'framer-motion'
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, index }) {
   const isImageUrl =
     typeof project.image === 'string' &&
     (project.image.startsWith('http://') ||
@@ -12,10 +13,10 @@ function ProjectCard({ project }) {
   const hasDemo = project.demo && project.demo !== '#'
 
   return (
-    <article className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-orange-500/30 hover:shadow-[0_20px_50px_rgba(249,115,22,0.15)] flex flex-col justify-between">
+    <motion.article initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .12 }} transition={{ duration: .55, delay: index * .08, ease: 'easeOut' }} whileHover={{ y: -7, scale: 1.01 }} className="premium-card group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] backdrop-blur-xl flex flex-col justify-between">
       <div>
         {/* Website Preview Container */}
-        <div className="relative h-60 w-full overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.35),transparent_60%),linear-gradient(135deg,rgba(15,23,42,0.95),rgba(30,41,59,0.85))] p-5">
+        <div className="relative h-60 w-full overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.35),transparent_60%),linear-gradient(135deg,rgba(6,19,41,0.98),rgba(20,32,68,0.9))] p-5">
           <div className="absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.08),transparent)] opacity-0 transition duration-700 group-hover:translate-x-full group-hover:opacity-100" />
 
           {isImageUrl ? (
@@ -43,7 +44,7 @@ function ProjectCard({ project }) {
 
               {/* Center Content / Description text */}
               <div className="my-auto space-y-1">
-                <div className="flex items-center gap-2 text-orange-400">
+                <div className="flex items-center gap-2 text-sky-400">
                   <Code2 size={18} />
                   <h4 className="text-base font-bold text-white">{project.title}</h4>
                 </div>
@@ -139,7 +140,7 @@ function ProjectCard({ project }) {
           </span>
         )}
       </div>
-    </article>
+    </motion.article>
   )
 }
 

@@ -21,7 +21,10 @@ function ScrollProgress() {
 
   return (
     <div className="fixed inset-x-0 top-0 z-[60] h-1 bg-transparent">
-      <div className="h-full rounded-full bg-[linear-gradient(90deg,var(--accent),var(--accent-strong),#f59e0b)] transition-[width] duration-150" style={{ width: `${progress}%` }} />
+      <div
+        className="h-full rounded-full bg-[linear-gradient(90deg,var(--accent),var(--accent-strong),#a855f7)] transition-[width] duration-150"
+        style={{ width: `${progress}%` }}
+      />
     </div>
   )
 }
